@@ -98,28 +98,6 @@ body {
   }
 }
 
-@keyframes slideInFromRight {
-  from {
-    opacity: 0;
-    transform: translateX(100%);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideInFromLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-100%);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
 /* Classes de reveal */
 .reveal {
   opacity: 0;
@@ -627,39 +605,12 @@ body {
 .testimonials-section {
   padding: 7rem 0;
   background-color: #2d1f15;
-  overflow: hidden;
 }
 
 .testimonials-content {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 1.5rem;
-}
-
-.testimonials-content {
-  position: relative;
-  padding-bottom: 4rem;
-}
-
-.testimonials-content::after {
-  content: '';
-  position: absolute;
-  bottom: 1.5rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 120px;
-  height: 2px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(212, 165, 116, 0.6),
-    transparent
-  );
-}
-
-.testimonials-carousel-container {
-  overflow: hidden;
-  position: relative;
 }
 
 .testimonials-grid {
@@ -674,25 +625,18 @@ body {
   }
 }
 
-.testimonials-grid.slide-next {
-  animation: slideInFromRight 1s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.testimonials-grid.slide-prev {
-  animation: slideInFromLeft 1s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
 .testimonial-card {
   background-color: rgba(26, 20, 16, 0.6);
   padding: 2rem;
   border-radius: 1rem;
   border: 1px solid rgba(139, 105, 20, 0.3);
   transition: all 0.4s ease;
+  animation: smoothFadeIn 1s ease-in-out;
 }
 
 .testimonial-card:hover {
   border-color: #D4A574;
-  transform: translateY(-0px);
+  transform: translateY(-5px);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
   background-color: rgba(26, 20, 16, 0.8);
 }
@@ -779,104 +723,6 @@ body {
   transform: scale(1.3);
 }
 
-/* ============ DIFFERENTIALS SECTION ============ */
-
-.differentials-section {
-  padding: 4rem 0 7rem;
-  background: linear-gradient(to bottom, #2d1f15 0%, #1a1410 100%);
-  position: relative;
-}
-
-.differentials-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, 
-    transparent 0%, 
-    #1e3a8a 15%, 
-    #1e3a8a 85%, 
-    transparent 100%);
-}
-
-.differentials-section::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, 
-    transparent 0%, 
-    #D4A574 15%, 
-    #D4A574 85%, 
-    transparent 100%);
-}
-
-.differentials-content {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-
-.differentials-grid {
-  display: grid;
-  gap: 1.5rem;
-}
-
-@media (min-width: 768px) {
-  .differentials-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.differentials-grid {
-  display: grid;
-  gap: 5.5rem;
-}
-
-.differential-item::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 1rem;
-  /* background: linear-gradient(
-    135deg,
-    rgba(212, 165, 116, 0.08),
-    transparent 90%
-  ); */
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
-.differential-item:hover::before {
-  opacity: 1;
-}
-
-.differential-number {
-  font-size: 3rem;
-  font-weight: bold;
-   color: #D4A574;
-  margin-bottom: 0.5rem;
-  line-height: 1;
-}
-
-.differential-title {
-  font-size: 1.6rem;
-  font-weight: bold;
-  color: #D4A574;
-  margin-bottom: 1rem;
-  line-height: 1.2;
-}
-
-.differential-description {
-  color: #d4c4a8;
-  line-height: 1.6;
-  font-size: 1rem;
-}
-
 /* ============ GALLERY SECTION ============ */
 
 .gallery-section {
@@ -955,10 +801,37 @@ body {
   transform: scale(1.1);
 }
 
+.gallery-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.gallery-dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background-color: rgba(212, 165, 116, 0.3);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.gallery-dot:hover {
+  background-color: rgba(212, 165, 116, 0.6);
+  transform: scale(1.2);
+}
+
+.gallery-dot.active {
+  background-color: #D4A574;
+  transform: scale(1.3);
+}
+
 /* ============ LOCATION SECTION ============ */
 
 .location-section {
-  padding: 2rem 0 2rem;
+  padding: 2rem 0 4rem;
   background-color: #1a1410;
 }
 
@@ -979,7 +852,7 @@ body {
 /* ============ ABOUT SECTION ============ */
 
 .about-section {
-  padding: 1rem 0 7rem;
+  padding: 4rem 0 7rem;
   background-color: #1a1410;
 }
 
@@ -1109,7 +982,6 @@ body {
 .developer-link:hover::after {
   width: 100%;
 }
-
 
 /* ============ SMOOTH SCROLL ============ */
 
