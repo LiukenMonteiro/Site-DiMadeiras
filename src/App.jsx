@@ -545,7 +545,7 @@ const differentials = [
 
           <div className="button-group reveal reveal-delay-2">
             <a 
-              href="https://wa.me/5561996661351?text=Olá!%20Gostaria%20de%20fazer%20um%20orçamento%20e%20mais%20informações." 
+              href="https://wa.me/5561996661351?text=Olá!%20Gostaria%20de%20fazer%20um%20orçamento%20e%20ter%20mais%20informações." 
               target="_blank" 
               rel="noopener noreferrer"
               className="btn-primary"
