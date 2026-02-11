@@ -1201,6 +1201,29 @@ body {
   width: 100%;
 }
 
+/* ============ AJUSTES PARA ÍCONES NOS BOTÕES EXISTENTES ============ */
+
+/* Garantir que os botões exibam ícones inline corretamente */
+.btn-primary,
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-primary svg,
+.btn-secondary svg {
+  flex-shrink: 0;
+}
+
+/* Responsivo - mantém os ícones alinhados */
+@media (max-width: 768px) {
+  .btn-primary,
+  .btn-secondary {
+    justify-content: center;
+  }
+}
+
 /* ============ SMOOTH SCROLL ============ */
 
 html {
