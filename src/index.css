@@ -1224,6 +1224,70 @@ body {
   }
 }
 
+/* ================= MENU HAMBURGUER ================= */
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: var(--z-modal);
+}
+
+.hamburger span {
+  width: 26px;
+  height: 3px;
+  background-color: var(--color-primary);
+  border-radius: 3px;
+  transition: all var(--transition-fast);
+}
+
+/* Animação virar X */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 767px) {
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    background-color: var(--bg-card);
+    backdrop-filter: var(--blur-sm);
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-xl) 0;
+    border-bottom: var(--border-width) solid var(--border-primary);
+    display: none;
+    animation: smoothFadeIn 0.4s ease;
+  }
+
+  .nav.active {
+    display: flex;
+  }
+}
+
+
 /* ============ SMOOTH SCROLL ============ */
 
 html {
