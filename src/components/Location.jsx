@@ -6,7 +6,6 @@ function Location() {
         <div className="section-divider"></div>
 
         <p className="location-text">
-          Chácaras Marajoara – Jardim Ingá Luziânia – GO<br />
           📍 Atendemos todo DF e Entorno, Cristalina-Go e região
         </p>
       </div>
